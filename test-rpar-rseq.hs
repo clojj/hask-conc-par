@@ -75,7 +75,7 @@ parfibStrat n = x `par` y `pseq` (x+y)
      y = parfibStrat (n-2)
 
 main = do
-  -- (Reasonable setting for Intel Core 2 Duo laptop)
+
   (n:args) <- getArgs
   let size = read n
 
