@@ -2,7 +2,7 @@
 -- module Test where
 
 import           Control.Parallel.Strategies
-import           Control.DeepSeq
+import           Control.DeepSeq (force)
 import GHC.Conc (pseq, par)
 
 import           Debug.Trace
@@ -37,7 +37,7 @@ fib n = fib (n - 1) + fib (n - 2)
 evalWithTimer f = do
   putStrLn "starting..."
   start <- getCurrentTime
-  putStrLn $ "Result: " ++ (show f)
+  putStrLn $ "Result: " ++ show f
   end <- getCurrentTime
   putStrLn $ show (end `diffUTCTime` start) ++ " elapsed."
 
